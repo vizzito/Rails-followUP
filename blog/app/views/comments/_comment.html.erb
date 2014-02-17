@@ -1,14 +1,12 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		commented by: <strong><%= comment.commenter %></strong>
+	</div>
+<div class="panel-body ">
 <p>
-	<strong>Commenter:</strong>
-	<%= comment.commenter %>
-</p>
-
-<p>
-	<strong>Comment:</strong>
 	<%= comment.body %>
 </p>
-<p>
-  <%= link_to 'Destroy Comment', [comment.post, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+</div class = "panel-footer">
+	<%= link_to 'Destroy Comment', [comment.post, comment],method: :delete,data: { confirm: 'Are you sure?' } %>
+</div>
+

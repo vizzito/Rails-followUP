@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+	<div class="panel-heading">
+		User List
+	</div>
+
+	<!-- Table -->
+	<table class="table">
+		<thead>
+			<tr>
+				<th>User</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+			<tr>
+
+				<td><%= user.email %></td>
+
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<br />
+<%= link_to 'Home', root_path %>
+

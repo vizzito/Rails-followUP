@@ -1,19 +1,24 @@
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
-<br/>
+<h3>Post Details</h3>
+<div class="panel panel-default margin-left">
+	<div class="panel-heading">
+	<p>
+		<strong>Title:</strong>
+		<%= @post.title %>
+	</p>
 
-<h2>Comments</h2>
-<%= render @post.comments %>
+	<p>
+		<strong>Text:</strong>
+		<%= @post.text %>
+	</p>
+	</div>
+	<br/>
 
-<br />
-<h2>Add a commnet:</h2>
-<%= render "comments/form"%>
+	<h4>Comments</h4>
+	<%= render @post.comments %>
 
-<%= link_to 'Back', posts_path %> | <%= link_to 'Edit', edit_post_path(@post) %>
+	<br />
+	<h2>Add a comment:</h2>
+	<%= render "comments/form"%>
+
+	<%= link_to 'Back', posts_path %> | <%= link_to 'Edit', edit_post_path(@post) %>
+</div>

@@ -1,13 +1,20 @@
+<div class="panel panel-primary">
+<div class="panel-body">
 <%= form_for([@post, @post.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+
+<p>
+	<%= f.label :commenter %>
+	<br />
+	<%= f.text_field :commenter %>
+</p>
+<p>
+	<%= f.label :body %>
+	<br />
+	<%= f.text_area :body %>
+</p>
+</div>
+<span class = "btn">
+	<%= f.submit %>
+</span>
 <% end %>
+</div>

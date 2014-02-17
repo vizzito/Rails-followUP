@@ -1,11 +1,15 @@
 Blog::Application.routes.draw do
+  resources :users ,only: [:index]
+  devise_for :users
   #nueva resource para post, me generara las REST calls
   #al agregar cooments anidado en post lo que me genera es una ruta como
   #/posts/:post_id/comments(.:format) asociando un post a muchos comments
-  resources :posts do
+ resources :posts do
     resources :comments
   end
+  
   get "welcome/index"
+  get 'login', to: 'login#index'
   root "welcome#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

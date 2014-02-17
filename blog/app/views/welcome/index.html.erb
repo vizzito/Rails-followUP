@@ -1,4 +1,21 @@
+<header></header>
+<body>
 <h1>Hello, Rails!</h1>
-<%= link_to "My Blog", controller: "posts" %>
 <br/>
+<% if user_signed_in?%>
+<span class="btn btn-default btn-lg" role="button">
+	<%= link_to "My Blog", controller: "posts" %>
+
+</span>
+<br/>
+<span class="btn btn-default btn-lg" role="button">
+
 <%= link_to 'New post', new_post_path %>
+</span>
+<br/>
+<span class="btn btn-default btn-lg" role="button">
+
+<%= link_to 'List Users', users_path %>
+</span>
+<% end%>
+</body>
