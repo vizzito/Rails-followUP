@@ -1,9 +1,17 @@
 class PostsController < ApplicationController
-  
+  helper_method :orderby
   #http_basic_authenticate_with name: "admin", password: "admin", except: [:index, :show]
+    
+  def orderby
+    @posts = Post.order(title: :asc)
+    render '/posts/listposts'
+  end
   
   def index
-    @posts = Post.all
+    if(@posts== nil)
+      @posts = Post.all
+    end
+    return @posts
   end
   
   #defino accion new para el controlador post
@@ -48,7 +56,7 @@ class PostsController < ApplicationController
     #consulta API del modelo
     @post = Post.find(params[:id])
   end
-  
+
   private
   def post_params
     params.require(:post).permit(:title, :text, :photo)

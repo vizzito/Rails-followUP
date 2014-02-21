@@ -1,0 +1,46 @@
+<div class = "row">
+	<% @posts.each do |post| %>
+
+	<div class="col-md-6 col-md-offset-3">
+		<div class="panel panel-default">
+			<div class ="panel-body">
+				<div class = "row">
+					<div class="col-md-8">
+						<strong>Title: </strong><%= post.title %></br> <strong>Text: </strong><%= post.text %>
+					</div>
+					<div class="col-md-3 col-md-offset-1">
+						<div class="thumbnail">
+							<span class="btn-group"> <a id="image-thumb" href="#test_modal" data-toggle="modal"> <%= image_tag(post.photo.url) %></a> </span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class = "panel-footer">
+				<%= link_to 'Show ', post%>| 
+
+				<%= link_to 'Edit ', edit_post_path(post) %>|
+
+				<%= link_to 'Destroy', post_path(post),
+				method: :delete, data: { confirm: 'Are you sure?' } %>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="test_modal">
+		<div class= "modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body" id="body-image">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<%= image_tag(post.photo.url(:original))%>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<% end %>
+	<div class="col-md-6 col-md-offset-3">
+		<%= link_to 'New post', new_post_path %>
+	</div>
+</div>
